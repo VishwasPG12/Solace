@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-
+const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 const ChatPage = () => {
   const [messages, setMessages] = useState([
     {
@@ -37,7 +37,7 @@ const ChatPage = () => {
     setIsTyping(true);
 
     try {
-      const response = await fetch('http://localhost:5000/api/chat', {
+      const response = await fetch(`${BASE_URL}/api/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
